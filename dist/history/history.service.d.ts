@@ -1,5 +1,5 @@
 /// <reference types="multer" />
-import { AwsProvider } from 'src/aws/aws.provider';
+import { AwsProvider } from '../aws/aws.provider';
 import { Repository } from 'typeorm';
 import { HistoryEntity } from '../database/entities/history.entity';
 export declare class HistoryService {
