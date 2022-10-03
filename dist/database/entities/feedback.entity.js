@@ -18,17 +18,10 @@ let FeedBackEntity = class FeedBackEntity extends dateAudit_entity_1.DateAuditEn
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
     __metadata("design:type", Number)
-], FeedBackEntity.prototype, "customer_id", void 0);
+], FeedBackEntity.prototype, "history_id", void 0);
 __decorate([
-    (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", Number)
-], FeedBackEntity.prototype, "trainer_id", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)(() => history_entity_1.HistoryEntity),
-    (0, typeorm_1.JoinColumn)([
-        { name: 'trainer_id', referencedColumnName: 'trainer_id' },
-        { name: 'customer_id', referencedColumnName: 'customer_id' },
-    ]),
+    (0, typeorm_1.OneToOne)(() => history_entity_1.HistoryEntity),
+    (0, typeorm_1.JoinColumn)([{ name: 'history_id', referencedColumnName: 'history_id' }]),
     __metadata("design:type", history_entity_1.HistoryEntity)
 ], FeedBackEntity.prototype, "history", void 0);
 __decorate([

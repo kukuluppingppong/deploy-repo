@@ -1,8 +1,11 @@
-export declare class DietDto {
+/// <reference types="multer" />
+import { IHistory } from './Ihistory';
+export declare class DietDto implements IHistory {
     title: string;
     time: string;
     amount: string;
     score: number;
-    image?: string;
+    file?: Express.Multer.File;
+    path?: string;
     getDescripion(): string;
 }

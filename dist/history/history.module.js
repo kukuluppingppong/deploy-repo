@@ -13,11 +13,15 @@ const history_entity_1 = require("../database/entities/history.entity");
 const aws_module_1 = require("../aws/aws.module");
 const history_controller_1 = require("./history.controller");
 const history_service_1 = require("./history.service");
+const trainer_entity_1 = require("../database/entities/trainer.entity");
 let HistoryModule = class HistoryModule {
 };
 HistoryModule = __decorate([
     (0, common_1.Module)({
-        imports: [aws_module_1.AwsModule, typeorm_1.TypeOrmModule.forFeature([history_entity_1.HistoryEntity])],
+        imports: [
+            aws_module_1.AwsModule,
+            typeorm_1.TypeOrmModule.forFeature([history_entity_1.HistoryEntity, trainer_entity_1.TrainerEntity]),
+        ],
         controllers: [history_controller_1.HistoryController],
         providers: [history_service_1.HistoryService],
     })

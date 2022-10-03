@@ -19,6 +19,10 @@ exports.HISOTRY_TYPES = ['workout', 'diet'];
 let HistoryEntity = class HistoryEntity extends dateAudit_entity_1.DateAuditEntity {
 };
 __decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], HistoryEntity.prototype, "history_id", void 0);
+__decorate([
     (0, typeorm_1.PrimaryColumn)(),
     __metadata("design:type", Number)
 ], HistoryEntity.prototype, "customer_id", void 0);
@@ -30,19 +34,19 @@ __decorate([
     (0, class_validator_1.IsIn)(exports.HISOTRY_TYPES),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
-    (0, typeorm_1.Column)({ type: 'varchar', length: 6, nullable: false }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 7, nullable: false }),
     __metadata("design:type", String)
 ], HistoryEntity.prototype, "history_type", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
+    (0, typeorm_1.Column)({ type: 'text', nullable: false }),
     __metadata("design:type", String)
 ], HistoryEntity.prototype, "description", void 0);
 __decorate([
-    (0, class_validator_1.IsDateString)(),
+    (0, class_validator_1.IsDate)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, typeorm_1.Column)({ type: 'datetime', nullable: false }),
-    __metadata("design:type", String)
+    __metadata("design:type", Date)
 ], HistoryEntity.prototype, "perform_time", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => training_entity_1.TrainingEntity),

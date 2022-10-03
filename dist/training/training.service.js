@@ -31,6 +31,7 @@ let TrainingService = class TrainingService {
             .getMany();
         return trainers.map((trainer) => {
             const dto = new trainerInfoResponse_dto_1.TrainerInfoResponseDto();
+            dto.trainer_id = trainer.trainer_id;
             dto.name = trainer.name;
             dto.phone_number = trainer.phone_number;
             dto.career = trainer.career;

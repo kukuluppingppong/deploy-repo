@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DietDto = void 0;
+const swagger_1 = require("@nestjs/swagger");
+const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 class DietDto {
     getDescripion() {
@@ -17,24 +19,34 @@ class DietDto {
     }
 }
 __decorate([
+    (0, swagger_1.ApiProperty)({ type: 'string', required: true }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], DietDto.prototype, "title", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiProperty)({ type: 'string', required: true }),
+    (0, class_validator_1.Length)(4, 4),
+    (0, class_validator_1.IsNumberString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], DietDto.prototype, "time", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ type: 'string', required: true }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], DietDto.prototype, "amount", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ type: 'number', required: true }),
     (0, class_validator_1.IsNumber)(),
+    (0, class_transformer_1.Type)(() => Number),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
 ], DietDto.prototype, "score", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ type: 'string', format: 'binary', required: true }),
+    __metadata("design:type", Object)
+], DietDto.prototype, "file", void 0);
 exports.DietDto = DietDto;
 //# sourceMappingURL=diet.dto.js.map
