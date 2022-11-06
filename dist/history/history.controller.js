@@ -27,6 +27,13 @@ let HistoryController = class HistoryController {
     constructor(historyService) {
         this.historyService = historyService;
     }
+    async feedback() {
+        return [
+            '속도를 천천히 가동범위를 충분히 늘려주면 좋을것같습니다.',
+            '엉덩이를 더 뒤로 빼고 무게중심을 낮춰 자세를 고정하면 좋을것같습니다',
+            '팔을 조금 앞으로 빼서 어깨를 고정하고 가동범위를 늘려주면 좋을것같습니다',
+        ];
+    }
     async getDiet(trainer_id, date, user) {
         return await this.historyService.getContents(trainer_id, user.customer_id, date, 'diet');
     }
@@ -40,6 +47,22 @@ let HistoryController = class HistoryController {
         return await this.historyService.createWorkout(trainer_id, user.customer_id, file, dto);
     }
 };
+__decorate([
+    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, swagger_1.ApiOperation)({
+        summary: '트레이너의 피드백을 받아옵니다.',
+        description: '',
+    }),
+    (0, swagger_1.ApiResponse)({
+        status: 200,
+        description: '레코드가 성공적으로 조회 됐습니다.',
+    }),
+    (0, common_1.Get)('/feedback'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], HistoryController.prototype, "feedback", null);
 __decorate([
     (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     (0, swagger_1.ApiBearerAuth)(),
